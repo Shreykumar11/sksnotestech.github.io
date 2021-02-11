@@ -1,0 +1,287 @@
+
+<!doctype html>
+<html>
+ <head>
+  <title>
+    Notes Tech
+  </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {% load static %}
+     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+     <link rel="stylesheet" href="{% static 'css/dropdown.css' %}">
+  <style>
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 8px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+  height: 100%;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #90EE90;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 a{
+  border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.btn7:hover, .btn7:focus {
+  background: rgba(160, 160, 160, .5);
+  border-color: rgba(40, 40, 40, .9);
+}
+
+h1 {
+  font-size: 530%;
+  color: purple;
+}
+
+h2 {
+  font-size: 230%;
+}
+.box .text{
+        position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        color: red;
+        font: red serif;
+        top: 2%; /* Adjust this value to move the positioned div up and down */
+        text-align: center;
+        width: 60%; /* Set the width of the positioned div */
+      }
+
+.how h3 {
+  color: blue;
+  font-size: 30px;
+}
+
+.sep h3 {
+  font-size: 90px;
+  color: red;
+}
+
+.extra{
+  float: right;
+}
+
+.wel{
+
+    text-colour: white;
+}
+</style>
+ </head>
+ <body bgcolor="gold">
+  <div class="navbar">
+  <a href="{% url 'home1' %}" class="active"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">B.Tech
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2 align="center">Select The Year & Branch
+          <a href="{% url 'sub1st' %}" class="btn7">1st Year</a></h2>
+      </div>
+      <div class="row">
+        <div class="column">
+          <h3>2nd Year</h3>
+          <a href="{% url 'sub2nd' %}">Computer Science & Engineering</a>
+          <a href="{% url 'sub2nd' %}">Computer Engineering & Information Technology</a>
+          <a href="{% url 'sub2nd' %}">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+        <div class="column">
+          <h3>3rd Year</h3>
+          <a href="{% url 'sub3rd' %}">Computer Science & Engineering</a>
+          <a href="{% url 'sub3rd' %}">Computer Engineering & Information Technology</a>
+          <a href="{% url 'sub3rd' %}">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+        <div class="column">
+          <h3>4th Year</h3>
+          <a href="#">Computer Science & Engineering</a>
+          <a href="#">Computer Engineering & Information Technology</a>
+          <a href="#">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'feedback' %}"><i class="fa fa-fw fa-envelope"></i>Contact us</a>
+
+  <div class="extra">
+      <div class="dropdown">
+          <button class="dropbtn">
+              {% if user.is_authenticated %}
+              Welcome, {{request.user}}
+              {% endif %}
+                <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+          <div class="row">
+              <div class="column">
+                  <a href="{% url 'profile' %}"><i class="fa fa-user"></i>Profile</a>
+              </div>
+              <div class="column">
+                  <a href="#"><i class="fa fa-hand-spock-o"></i>Hello !!</a>
+              </div>
+        <div class="column">
+          <a href="{% url 'login' %}"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="text">
+  <h1 class="serif" align="center">NOTES TECH</h1>
+  <h2 align="center"><b>A Success Key To Your Goals...</b></h2>
+</div>
+  <br>
+  <div class="how">
+   <img src="https://i.pinimg.com/originals/bb/62/46/bb6246c85c65ddd0b35f8e6a817cb256.gif" alt="writing man" align="left" height="20%" width="20%"> <br>
+    <h3>How Notes Tech Help :</h3>
+<ul>
+  <li>Dictation kills classroom time, and conceptual discussion is non-existent these days.</li>
+<li>Teacher share their notes at Notes Tech teach freely in the classroom and discuss in the concept.</li>
+<li>Students can access the notes from different teachers, compare them and refer to the one that suits their requirements.</li>
+</ul>
+   <img src="https://0201.nccdn.net/4_2/000/000/038/2d3/c3fffbed1207d91467708b02a2713cfc.gif" alt="Reading man" align="right" height="20%" width="20%">
+   </div>
+   <br>
+   <br>
+   <br><br>
+   <br><br><br><br><br>
+   <p align="center"><b>——————x——————</b></p>
+  </div>
+
+
+   <div class="sep">
+   <img src="https://i.pinimg.com/originals/e7/f2/91/e7f291b479259a24d165660124f3394b.gif" alt="Searching man" align="left" height="10%" width="20%"> <br><br><br><br><br>
+   <div>
+   <h3 align="center">Keep On Finding And Growing With Us...</h3>
+   <img src="https://www.gif-maniac.com/gifs/54/53566.gif" alt="standing man" align="right" height="450px" width="250px">
+   </div>
+    <br>
+   <br>
+   <br> <br><br><br>
+   <br><br><br><br><br>
+   <p align="center"><b>——————x——————</b></p>
+  </div>
+  <br>
+  <div>
+  </div>
+  <br>
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARcAAAC0CAMAAACJ8pgSAAAAD1BMVEV4DRV6DBV3DhV6Dxd2CxP7VnAqAAAC70lEQVR4nO2d4XajIBBGG+n7P/O2Zz27Mf2MYBmYGe79lZxUhCsMCGI/PgBgUR6Px+wsuAQvGrxo8KLBiwYvmm3bTNMvpqkDALRSCEsSvGjwAgBgRlOELecB+c1PkIk1L/OEUj+YO5GE8EJ90awZPa7xf+XmgBeNIy/F09Cvn5cQ4XRCQA3iZTghvKw+LPETqH7ppXvMLT++OnJVT14v1ivGTYSsGwDZoCFq8AItUF80eAEwoThuXH5ztjCeK8xM/Frpk7M7qfCkhua9lwxios7cmZPi6naEigJN0IAAYD0GBL4gsbUcPg/xEsTMEy15vnnT4U/Ldr1AvaSXa9ZsRzXPv6wYdyu8DMmzNzGuniMD91T0R4H50T02xXdvbVsgsphjftYLbS69m6/Nn/dyzAIvGrxANDyOlD20I49ePODRS1ntzYHVDQQvmqW8NIRTvGiW8tLA7sVaT6/0j52XYa736SS8nJ4vRPp4qUmH4DiYfx2X9ax1r/SP6Zjl2sN9o0cSL238CsKWxspL6kU26M6NgYWrfRlWOWHApcGLJroXR+3IVXyBF/ZdSlyhF9i9pXn10iopemC9oIhPVST38h+8SGhHUAF9EiQmTfW2fUuqHZ+jTtSHNPWlc0kCesk1093vAnh8evA+eLEmlxfqizW54u4rYh/f++9PbInnrZefk6+e333+q8+rY+JLZd5bY+3FJHF3L6VoBy+a4F7en2dQ5xRvRDjEi8eR8tW81AgxHr1cMarCjDjNHCJe9RHgRYMXAAC4D12IBi8avGjwosGLJvNaGADMRb12Nf5iBIyECvMCOjRUFAlazjj3gjEAmEv/pbVZca1vOfIsObr3MqnC4EVzUo5uubmbEOOlUFw+2F3J3VuLRNUl9/+Fgt7wvJQGLxq8QAsL9EcR9/I1XZZj+Q5H7vuyRFoBpXzTFt2eC3k4Mts+vqawfyz54cjdi0kX0rkd1uzR3f56uXXiryOPx5UQXireJ/p1G9bbyx+/lgR1wIjtGAAAAABJRU5ErkJggg==" width="100%" height="30">
+
+ </body>
+ <footer>
+ <address></address>
+ <p align="center">Copyright © 2020 All rights reserved.</p>
+ </footer>
+</html>

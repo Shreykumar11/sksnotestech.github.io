@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+ <head>
+  <title>
+    Notes Tech
+  </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {% load static %}
+     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+  <style>
+  * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 8px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+  height: 100%;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #90EE90;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 a{
+  border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.btn7:hover, .btn7:focus {
+  background: rgba(160, 160, 160, .5);
+  border-color: rgba(40, 40, 40, .9);
+}
+
+h1 {
+    padding-top: 5px;
+    margin-top: 15px;
+  font-size: 500%;
+  color: black;
+}
+
+h2 {
+  font-size: 230%;
+}
+.box .text{
+        position: absolute;
+        z-index: 999;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        color: red;
+        font: red serif;
+        top: 2%; /* Adjust this value to move the positioned div up and down */
+        text-align: center;
+        width: 60%; /* Set the width of the positioned div */
+      }
+
+.how h3 {
+  color: blue;
+  font-size: 30px;
+}
+
+.sep h3 {
+  font-size: 90px;
+  color: red;
+}
+
+.extra{
+  float: right;
+}
+</style>
+ </head>
+ <body bgcolor="orange">
+  <div class="navbar">
+  <a href="{% url 'home1' %}" class="active"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">B.Tech
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2 align="center">Select The Year & Branch
+          <a href="{% url 'sub1st' %}" class="btn7">1st Year</a></h2>
+      </div>
+      <div class="row">
+        <div class="column">
+          <h3>2nd Year</h3>
+          <a href="{% url 'sub2nd' %}">Computer Science & Engineering</a>
+          <a href="{% url 'sub2nd' %}">Computer Engineering & Information Technology</a>
+          <a href="{% url 'sub2nd' %}">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+        <div class="column">
+          <h3>3rd Year</h3>
+          <a href="{% url 'sub3rd' %}">Computer Science & Engineering</a>
+          <a href="{% url 'sub3rd' %}">Computer Engineering & Information Technology</a>
+          <a href="{% url 'sub3rd' %}">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+        <div class="column">
+          <h3>4th Year</h3>
+          <a href="#">Computer Science & Engineering</a>
+          <a href="#">Computer Engineering & Information Technology</a>
+          <a href="#">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'feedback' %}"><i class="fa fa-fw fa-envelope"></i>Contact us</a>
+
+  <div class="extra">
+      <div class="dropdown">
+          <button class="dropbtn">
+              {% if user.is_authenticated %}
+              Welcome, {{request.user}}
+              {% endif %}
+                <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+          <div class="row">
+              <div class="column">
+                  <a href="{% url 'profile' %}"><i class="fa fa-user"></i>Profile</a>
+              </div>
+              <div class="column">
+                  <a href="#"><i class="fa fa-hand-spock-o"></i>Hello !!</a>
+              </div>
+        <div class="column">
+          <a href="{% url 'login' %}"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+  <div>
+  <h1 align="center"><u>PROFILE</u></h1>
+  </div>
+ <div>
+     <h3>
+<table align="center" cellpadding="8" cellspacing="6" width="40%" border="1">
+    <tr align="center">
+        <th colspan="2">Full Name</th>
+        <td colspan="2">{{first}}</td>
+    </tr>
+    <tr align="center">
+        <th colspan="2">Gender</th>
+        <td colspan="2">{{seventh}}</td>
+    </tr>
+    <tr align="center">
+        <th colspan="2">Username</th>
+        <td colspan="2">{{second}}</td>
+    </tr>
+    <tr align="center">
+        <th colspan="2">Email</th>
+        <td colspan="2">{{third}}</td>
+    </tr>
+    <tr align="center">
+        <th colspan="2">Password</th>
+        <td colspan="2">{{fourth}}</td>
+    </tr>
+    <tr align="center">
+        <th colspan="2">DOB</th>
+        <td colspan="2">{{fifth}}</td>
+    </tr>
+    <tr align="center">
+        <th colspan="2">Contact</th>
+        <td colspan="2">{{sixth}}</td>
+    </tr>
+</table>
+     </h3>
+ </div>
+ </body>
+</html>

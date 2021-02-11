@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notes Tech</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="navbar.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 8px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #ccc;
+  height: 100%;
+}
+
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.column a:hover {
+  background-color: #90EE90;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+  }
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 a{
+  border: 1px solid rgba(255, 255, 255, .5);
+}
+
+.btn7:hover, .btn7:focus {
+  background: rgba(160, 160, 160, .5);
+  border-color: rgba(40, 40, 40, .9);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(70, 68, 68);
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(70, 68, 68);
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: rgb(37, 116, 161);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+ body {
+  background-image: url('https://talentpartnersinc.com/wp-content/uploads/2017/05/feedback.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+#status {
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+#status.success {
+  background-color: rgb(211, 250, 153);
+  animation: status 4s ease forwards;
+}
+#status.error {
+  background-color: rgb(250, 129, 92);
+  color: white;
+  animation: status 4s ease forwards;
+}
+@keyframes status {
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  90% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+.extra{
+  float: right;
+}
+
+</style>
+</head>
+<body>
+  <div class="navbar">
+  <a href="{% url 'home1' %}" class="active"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">B.Tech
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="header">
+        <h2 align="center">Select The Year & Branch
+          <a href="{% url 'sub1st' %}" class="btn7">1st Year</a></h2>
+      </div>
+      <div class="row">
+        <div class="column">
+          <h3>2nd Year</h3>
+          <a href="{% url 'sub2nd' %}">Computer Science & Engineering</a>
+          <a href="{% url 'sub2nd' %}">Computer Engineering & Information Technology</a>
+          <a href="{% url 'sub2nd' %}">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+        <div class="column">
+          <h3>3rd Year</h3>
+          <a href="{% url 'sub3rd' %}">Computer Science & Engineering</a>
+          <a href="{% url 'sub3rd' %}">Computer Engineering & Information Technology</a>
+          <a href="{% url 'sub3rd' %}">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+        <div class="column">
+          <h3>4th Year</h3>
+          <a href="#">Computer Science & Engineering</a>
+          <a href="#">Computer Engineering & Information Technology</a>
+          <a href="#">Information Technology</a>
+          <a href="#">Mechanical Engineering</a>
+          <a href="#">Civil Engineering</a>
+          <a href="#">Electronics & Communication Engineering</a>
+          <a href="#">Electrical Engineering</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'feedback' %}"><i class="fa fa-fw fa-envelope"></i>Contact us</a>
+
+  <div class="extra">
+      <div class="dropdown">
+          <button class="dropbtn">
+              {% if user.is_authenticated %}
+              Welcome, {{request.user}}
+              {% endif %}
+                <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+          <div class="row">
+              <div class="column">
+                  <a href="{% url 'profile' %}"><i class="fa fa-user"></i>Profile</a>
+              </div>
+              <div class="column">
+                  <a href="#"><i class="fa fa-hand-spock-o"></i>Hello !!</a>
+              </div>
+        <div class="column">
+          <a href="{% url 'login' %}"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+<h2 align="center">FEEDBACK FORM</h2>
+<section>
+<div class="container">
+  <form action="https://formspree.io/f/xyybdebv" method="POST" id="my-form">
+    <div class="row">
+      <div class="col-25">
+        <label for="fname">First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="firstname" placeholder="Your first name.." required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <label for="email">Mail Id</label>
+        </div>
+        <div class="col-75">
+          <input type="email" id="email" name="Email" placeholder="Your mail id.." required>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Country</label>
+      </div>
+      <div class="col-75">
+        <select id="country" name="country" required>
+            <option value="none">Select Country</option>
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+          <option value="russia">Russia</option>
+          <option value="japan">Japan</option>
+          <option value="india">India</option>
+          <option value="china">China</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="feed_back">Message</label>
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:150px" required></textarea>
+      </div>
+    </div>
+    {% csrf_token %}
+    <div class="row" align="center">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+  </div>
+  <div id="status"></div>
+</div>
+</section>
+<script>
+
+window.addEventListener("DOMContentLoaded", function () {
+  // get the form elements defined in your form HTML above
+
+  var form = document.getElementById("my-form");
+  // var button = document.getElementById("my-form-button");
+  var status = document.getElementById("status");
+
+  // Success and Error functions for after the form is submitted
+
+  function success() {
+    form.reset();
+    status.classList.add("success");
+    status.innerHTML = "Thanks!";
+  }
+
+  function error() {
+    status.classList.add("error");
+    status.innerHTML = "Oops! There was a problem.";
+  }
+
+  // handle the form submission event
+
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var data = new FormData(form);
+    ajax(form.method, form.action, data, success, error);
+  });
+});
+
+// helper function for sending an AJAX request
+
+function ajax(method, url, data, success, error) {
+  var xhr = new XMLHttpRequest();
+  xhr.open(method, url);
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState !== XMLHttpRequest.DONE) return;
+    if (xhr.status === 200) {
+      success(xhr.response, xhr.responseType);
+    } else {
+      error(xhr.status, xhr.response, xhr.responseType);
+    }
+  };
+  xhr.send(data);
+}
+</script>
+</body>
+</html>
