@@ -90,12 +90,12 @@ def home(request):
     return HttpResponse('404 - Not Found')
 
 def userlogout(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         logout(request)
         messages.success(request, 'Successfully logged out !!')
         return redirect('/')
-
-    return HttpResponse('/')
+    else:
+        return HttpResponse('404 - Not Found')
 
 
 

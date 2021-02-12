@@ -215,6 +215,8 @@ h2 {
           <button class="dropbtn">
               {% if user.is_authenticated %}
               Welcome, {{request.user}}
+              {% else %}
+              Welcome, User
               {% endif %}
                 <i class="fa fa-caret-down"></i>
           </button>
@@ -227,7 +229,7 @@ h2 {
                   <a href="#"><i class="fa fa-hand-spock-o"></i>Hello !!</a>
               </div>
         <div class="column">
-          <a href="{% url 'login' %}"><i class="fa fa-sign-out"></i>Logout</a>
+          <a href="/userlogout"><i class="fa fa-sign-out"></i>Logout</a>
         </div>
           </div>
           </div>
